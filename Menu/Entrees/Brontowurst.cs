@@ -17,8 +17,8 @@ namespace DinoDiner.Menu.Entrees
             get
             {
                 List<string> ingredients = new List<string>() { "Brautwurst" };
-                if (Onions) ingredients.Add("Onions");
-                if (Bun) ingredients.Add("Bun");
+                if (Onions) ingredients.Add("Onion");
+                if (Bun) ingredients.Add("Whole Wheat Bun");
                 if (Peppers) ingredients.Add("Peppers");
                 return ingredients;
             }
@@ -40,7 +40,7 @@ namespace DinoDiner.Menu.Entrees
             this.Peppers = false;
         }
 
-        public void HoldOnions()
+        public void HoldOnion()
         {
             this.Onions = false;
         }
