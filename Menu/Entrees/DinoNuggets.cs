@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
-    class DinoNuggets
+    public class DinoNuggets
     {
         private bool Nugget = false;
         public double Price { get; set; }
