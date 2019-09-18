@@ -15,7 +15,7 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// Boolean that tells the program whether or not the customer wants to add more nuggets
         /// </summary>
-        private bool Nugget = false;
+        private int NuggetCount = 6;
         /// <summary>
         /// Property to get and set the price of the specific menu item
         /// </summary>
@@ -32,8 +32,11 @@ namespace DinoDiner.Menu.Entrees
         {
             get
             {
-                List<string> ingredients = new List<string>() { "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget" };
-                if (Nugget) ingredients.Add("Chicken Nugget"); Nugget = false;
+                List<string> ingredients = new List<string>() {  };
+                for(int i = 0; i < NuggetCount; i++)
+                {
+                    ingredients.Add("Chicken Nugget");
+                }
                 return ingredients;
             }
         }
@@ -52,7 +55,7 @@ namespace DinoDiner.Menu.Entrees
         {
             Price += 0.25;
             Calories += 59;
-            Nugget = true;
+            NuggetCount++;
         }
     }
 }
