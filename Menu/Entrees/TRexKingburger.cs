@@ -10,7 +10,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// TRexKingBurger class defines the menu item: Trex King Burger and it's ingredients along with the price and calories.
     /// </summary>
-    public class TRexKingBurger
+    public class TRexKingBurger : Entree
     {
         /// <summary>
         /// Boolean that tells the program whether or not the customer wants Bun or not

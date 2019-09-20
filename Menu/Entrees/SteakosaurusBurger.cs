@@ -10,7 +10,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// SteakosaurusBurger class defines the menu item: Steakosaurus Burger and it's ingredients along with the price and calories.
     /// </summary>
-    public class SteakosaurusBurger
+    public class SteakosaurusBurger : Entree
     {
         /// <summary>
         /// Boolean that tells the program whether or not the customer wants Bun or not

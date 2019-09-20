@@ -10,7 +10,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// VelociWrap class defines the menu item: Veloci Wrap and it's ingredients along with the price and calories.
     /// </summary>
-    public class VelociWrap
+    public class VelociWrap : Entree
     {
         /// <summary>
         /// Boolean that tells the program whether or not the customer wants cheese or not

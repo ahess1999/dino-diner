@@ -1,28 +1,19 @@
-﻿/*  Side.cs
+﻿/*  Entree.cs
 *   Author: Austin Hess
 */
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu.Entrees
 {
     /// <summary>
-    /// Enum that defines the sizes of the sides avaliable on the menu
+    /// Base class for entree menu options
     /// </summary>
-    public enum Size
-    {
-        Small,
-        Medium, 
-        Large
-    }
-    /// <summary>
-    /// Base class for the side menu options
-    /// </summary>
-    public abstract class Side
+    public abstract class Entree
     {
         /// <summary>
-        /// Read-only list of ingredients for the sides
+        /// Read-only list of ingredients for the entrees
         /// </summary>
         protected List<string> ingredients = new List<string>();
         /// <summary>
@@ -39,11 +30,5 @@ namespace DinoDiner.Menu.Sides
         /// Gets the ingredients list
         /// </summary>
         public List<string> Ingredients { get { return ingredients; } }
-
-        /// <summary>
-        /// Gets or sets the size
-        /// </summary>
-        public virtual Size Size { get; set; }
-
     }
 }

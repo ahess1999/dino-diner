@@ -10,7 +10,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// DinoNuggets class defines the menu item: Dino Nuggets and it's ingredients along with the price and calories.
     /// </summary>
-    public class DinoNuggets
+    public class DinoNuggets : Entree
     {
         /// <summary>
         /// Boolean that tells the program whether or not the customer wants to add more nuggets

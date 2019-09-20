@@ -1,4 +1,4 @@
-﻿/*  Triceritots.cs
+﻿/*  MezzorellaSticks.cs
 *   Author: Austin Hess
 */
 using System;
@@ -8,9 +8,9 @@ using System.Text;
 namespace DinoDiner.Menu.Sides
 {
     /// <summary>
-    /// Triceritots side menu option
+    /// Mezzorella sticks side menu option
     /// </summary>
-    public class Triceritots : Side
+    public class MezzorellaSticks : Side
     {
         /// <summary>
         /// Controls the size of the side that is being ordered
@@ -28,15 +28,15 @@ namespace DinoDiner.Menu.Sides
                 {
                     case Size.Small:
                         Price = 0.99;
-                        Calories = 352;
+                        Calories = 540;
                         break;
                     case Size.Medium:
                         Price = 1.45;
-                        Calories = 410;
+                        Calories = 610;
                         break;
                     case Size.Large:
                         Price = 1.95;
-                        Calories = 590;
+                        Calories = 720;
                         break;
                 }
             }
@@ -45,12 +45,12 @@ namespace DinoDiner.Menu.Sides
         /// <summary>
         /// Constructor that sets the default ingredients and the size and price to the smallest size
         /// </summary>
-        public Triceritots()
+        public MezzorellaSticks()
         {
             Price = 0.99;
-            Calories = 352;
-            Ingredients.Add("Potato");
-            Ingredients.Add("Salt");
+            Calories = 540;
+            Ingredients.Add("Cheese Product");
+            Ingredients.Add("Breading");
             Ingredients.Add("Vegetable Oil");
         }
     }

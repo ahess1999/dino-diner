@@ -10,7 +10,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Brontowurst class defines the menu item: Brontowurst and it's ingredients along with the price and calories.
     /// </summary>
-    public class Brontowurst
+    public class Brontowurst : Entree
     {
         /// <summary>
         /// Boolean that tells the progrmam to include the bun or not

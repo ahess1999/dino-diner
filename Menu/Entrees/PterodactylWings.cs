@@ -10,7 +10,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// PterodactylWings class defines the menu item: Pterodactyl Wings and it's ingredients along with the price and calories.
     /// </summary>
-    public class PterodactylWings
+    public class PterodactylWings : Entree
     {
         /// <summary>
         /// Property to get and set the price of the specific menu item

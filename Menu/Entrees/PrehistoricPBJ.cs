@@ -8,7 +8,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// PrehistroicPBJ class defines the menu item: Prehistoric PBJ and it's ingredients along with the price and calories.
     /// </summary>
-    public class PrehistoricPBJ
+    public class PrehistoricPBJ : Entree
     {
         /// <summary>
         /// Boolean that tells the program whether or not the customer wants peanut butter or not
