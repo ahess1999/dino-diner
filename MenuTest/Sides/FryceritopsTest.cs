@@ -1,7 +1,8 @@
 ﻿using Xunit;
 using DinoDiner.Menu.Sides;
+using DinoDiner.Menu;
 
-namespace MenuTest.Sides
+namespace DinoDiner.MenuTest.Sides
 {
     public class FryceritopsTest
     {

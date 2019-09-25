@@ -1,22 +1,16 @@
-﻿using System;
+﻿/*  Sodasaurus.cs
+*   Author: Austin Hess
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu.Drinks
 {
-    public enum SodasaurusFlavor
-    {
-        Cola,
-        Orange,
-        Vanilla,
-        Chocolate,
-        RootBeer,
-        Cherry,
-        Lime
-    }
     public class Sodasaurus : Drink
     {
-        public SodasaurusFlavor Flavor { get; set; }
+        private SodasaurusFlavor flavor;
+        public SodasaurusFlavor Flavor { get { return flavor; } set { flavor = value; } }
 
         private Size size;
         

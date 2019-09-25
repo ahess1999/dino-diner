@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*  JurassicJava.cs
+*   Author: Austin Hess
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 
