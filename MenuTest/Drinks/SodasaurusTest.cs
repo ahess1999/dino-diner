@@ -136,6 +136,16 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
+        /// Checks to see if the default calories is correct for the sodasaurus
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectDefaultCalories()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.Equal<uint>(112, soda.Calories);
+        }
+
+        /// <summary>
         /// Checks to see if the calories are correct after setting the size to small
         /// </summary>
         [Fact]
@@ -187,6 +197,29 @@ namespace MenuTest.Drinks
             Sodasaurus soda = new Sodasaurus();
             soda.HoldIce();
             Assert.False(soda.Ice);
+        }
+        
+        /// <summary>
+        /// Checks to make sure there are the correct number and name of ingredients
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectIngredients()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.Contains<string>("Water", soda.Ingredients);
+            Assert.Contains<string>("Natural Flavors", soda.Ingredients);
+            Assert.Contains<string>("Cane Sugar", soda.Ingredients);
+            Assert.Equal<int>(3, soda.Ingredients.Count);
+        }
+
+        /// <summary>
+        /// Checks to see if the default size is correct for the sodasaurus
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectDefaultSize()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.Equal<Size>(Size.Small, soda.Size);
         }
     }
 }
