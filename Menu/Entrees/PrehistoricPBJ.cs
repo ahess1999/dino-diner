@@ -3,7 +3,7 @@
 */
 using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// PrehistroicPBJ class defines the menu item: Prehistoric PBJ and it's ingredients along with the price and calories.

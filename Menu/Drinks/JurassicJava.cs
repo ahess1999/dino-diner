@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class that defines JurassicJava drink menu item
@@ -82,6 +82,18 @@ namespace DinoDiner.Menu.Drinks
             Calories = 2;
             Ingredients.Add("Water");
             Ingredients.Add("Coffee");
+        }
+        /// <summary>
+        /// Overrides the normal ToString method to return the correct name of the menu item
+        /// </summary>
+        /// <returns>The correct name of the menu item</returns>
+        public override string ToString()
+        {
+            if (Decaf)
+            {
+                return "Decaf Jurassic Java";
+            }
+            return "Jurassic Java";
         }
     }
 }

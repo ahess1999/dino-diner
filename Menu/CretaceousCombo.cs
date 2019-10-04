@@ -4,16 +4,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu.Entrees;
-using DinoDiner.Menu.Sides;
-using DinoDiner.Menu.Drinks;
+using DinoDiner.Menu;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class that defines comboes for the menu in dino diner
     /// </summary>
-    public class CretaceousCombo
+    public class CretaceousCombo : IMenuItem
     {
         /// <summary>
         /// Property that gets and sets the entree that the user selects
