@@ -49,5 +49,14 @@ namespace DinoDiner.Menu
             Calories += 59;
             NuggetCount++;
         }
+
+        /// <summary>
+        /// Overrides the normal ToString method to return the correct name of the menu item
+        /// </summary>
+        /// <returns>The correct name of the menu item</returns>
+        public override string ToString()
+        {
+            return "Dino-Nuggets";
+        }
     }
 }

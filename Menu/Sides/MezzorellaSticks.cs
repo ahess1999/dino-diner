@@ -49,9 +49,41 @@ namespace DinoDiner.Menu
         {
             Price = 0.99;
             Calories = 540;
-            Ingredients.Add("Cheese Product");
-            Ingredients.Add("Breading");
-            Ingredients.Add("Vegetable Oil");
+        }
+        /// <summary>
+        /// Property to add ingredients.
+        /// </summary>
+        /// <Returns>The ingredients that are included on the specific order.</Returns>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Cheese Product");
+                ingredients.Add("Breading");
+                ingredients.Add("Vegetable Oil");
+                return ingredients;
+            }
+        }
+        /// <summary>
+        /// Overrides the normal ToString method to return the correct name of the menu item
+        /// </summary>
+        /// <returns>The correct name of the menu item</returns>
+        public override string ToString()
+        {
+            if(size == Size.Small)
+            {
+                return "Small Mezzorella Sticks";
+            }
+            if (size == Size.Medium)
+            {
+                return "Medium Mezzorella Sticks";
+            }
+            if (size == Size.Large)
+            {
+                return "Large Mezzorella Sticks";
+            }
+            return "Mezzorella Sticks";
         }
     }
 }

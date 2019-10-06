@@ -85,10 +85,54 @@ namespace DinoDiner.Menu
         {
             Price = 0.99;
             Calories = 8;
-            Ingredients.Add("Water");
-            Ingredients.Add("Tea");
-            if (Sweet) { Ingredients.Add("Cane Sugar"); }
-            if (Lemon) { Ingredients.Add("Lemon"); }
+        }
+        /// <summary>
+        /// Property to add ingredients.
+        /// </summary>
+        /// <Returns>The ingredients that are included on the specific order.</Returns>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Water");
+                ingredients.Add("Tea");
+                if (Sweet) ingredients.Add("Cane Sugar");
+                if (Lemon) ingredients.Add("Lemon");
+                return ingredients;
+            }
+        }
+        /// <summary>
+        /// Overrides the normal ToString method to return the correct name of the menu item
+        /// </summary>
+        /// <returns>The correct name of the menu item</returns>
+        public override string ToString()
+        {
+            if (Sweet && size == Size.Small)
+            {
+                return "Small Sweet Tyrannotea";
+            }
+            if (Sweet && size == Size.Medium)
+            {
+                return "Medium Sweet Tyrannotea";
+            }
+            if (Sweet && size == Size.Large)
+            {
+                return "Large Sweet Tyrannotea";
+            }
+            if (size == Size.Small)
+            {
+                return "Small Tyrannotea";
+            }
+            if (size == Size.Medium)
+            {
+                return "Medium Tyrannotea";
+            }
+            if (size == Size.Large)
+            {
+                return "Large Tyrannotea";
+            }
+            return "Tyrannotea";
         }
     }
 }

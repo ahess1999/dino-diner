@@ -54,5 +54,13 @@ namespace DinoDiner.Menu
         {
             this.Jelly = false;
         }
+        /// <summary>
+        /// Overrides the normal ToString method to return the correct name of the menu item
+        /// </summary>
+        /// <returns>The correct name of the menu item</returns>
+        public override string ToString()
+        {
+            return "Prehistoric PB&J";
+        }
     }
 }

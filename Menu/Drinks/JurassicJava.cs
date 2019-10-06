@@ -80,8 +80,20 @@ namespace DinoDiner.Menu
             Ice = false;
             Price = 0.59;
             Calories = 2;
-            Ingredients.Add("Water");
-            Ingredients.Add("Coffee");
+        }
+        /// <summary>
+        /// Property to add ingredients.
+        /// </summary>
+        /// <Returns>The ingredients that are included on the specific order.</Returns>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Water");
+                ingredients.Add("Coffee");
+                return ingredients;
+            }
         }
         /// <summary>
         /// Overrides the normal ToString method to return the correct name of the menu item
@@ -89,9 +101,29 @@ namespace DinoDiner.Menu
         /// <returns>The correct name of the menu item</returns>
         public override string ToString()
         {
-            if (Decaf)
+            if (Decaf && size == Size.Small)
             {
-                return "Decaf Jurassic Java";
+                return "Small Decaf Jurassic Java";
+            }
+            if (Decaf && size == Size.Medium)
+            {
+                return "Medium Decaf Jurassic Java";
+            }
+            if (Decaf && size == Size.Large)
+            {
+                return "Large Decaf Jurassic Java";
+            }
+            if (size == Size.Small)
+            {
+                return "Small Jurassic Java";
+            }
+            if (size == Size.Medium)
+            {
+                return "Medium Jurassic Java";
+            }
+            if (size == Size.Large)
+            {
+                return "Large Jurassic Java";
             }
             return "Jurassic Java";
         }

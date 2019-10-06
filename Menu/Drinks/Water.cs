@@ -60,8 +60,40 @@ namespace DinoDiner.Menu
         {
             Price = 0.10;
             Calories = 0;
-            ingredients.Add("Water");
-            if(Lemon) { ingredients.Add("Lemon"); }
+        }
+        /// <summary>
+        /// Property to add ingredients.
+        /// </summary>
+        /// <Returns>The ingredients that are included on the specific order.</Returns>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Water");
+                if (Lemon) ingredients.Add("Lemon");
+                return ingredients;
+            }
+        }
+        /// <summary>
+        /// Overrides the normal ToString method to return the correct name of the menu item
+        /// </summary>
+        /// <returns>The correct name of the menu item</returns>
+        public override string ToString()
+        {
+            if(size == Size.Small)
+            {
+                return "Small Water";
+            }
+            if (size == Size.Medium)
+            {
+                return "Medium Water";
+            }
+            if (size == Size.Large)
+            {
+                return "Large Water";
+            }
+            return "Water";
         }
     }
 }
