@@ -71,19 +71,7 @@ namespace DinoDiner.Menu
         /// <returns>The correct name of the menu item</returns>
         public override string ToString()
         {
-            if(size == Size.Small)
-            {
-                return "Small Mezzorella Sticks";
-            }
-            if (size == Size.Medium)
-            {
-                return "Medium Mezzorella Sticks";
-            }
-            if (size == Size.Large)
-            {
-                return "Large Mezzorella Sticks";
-            }
-            return "Mezzorella Sticks";
+            return $"{size} Mezzorella Sticks";
         }
     }
 }

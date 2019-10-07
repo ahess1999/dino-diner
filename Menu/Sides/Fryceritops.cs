@@ -71,19 +71,7 @@ namespace DinoDiner.Menu
         /// <returns>The correct name of the menu item</returns>
         public override string ToString()
         {
-            if(size == Size.Small)
-            {
-                return "Small Friceritops";
-            }
-            if (size == Size.Medium)
-            {
-                return "Medium Friceritops";
-            }
-            if (size == Size.Large)
-            {
-                return "Large Friceritops";
-            }
-            return "Friceritops";
+            return $"{size} Fryceritops";
         }
     }
 }

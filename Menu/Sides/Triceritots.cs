@@ -70,20 +70,8 @@ namespace DinoDiner.Menu
         /// </summary>
         /// <returns>The correct name of the menu item</returns>
         public override string ToString()
-        {
-            if(size == Size.Small)
-            {
-                return "Small Triceritots";
-            }
-            if (size == Size.Medium)
-            {
-                return "Medium Triceritots";
-            }
-            if (size == Size.Large)
-            {
-                return "Large Triceritots";
-            }
-            return "Triceritots";
+        { 
+            return $"{size} Triceritots";
         }
     }
 }

@@ -101,31 +101,14 @@ namespace DinoDiner.Menu
         /// <returns>The correct name of the menu item</returns>
         public override string ToString()
         {
-            if (Decaf && size == Size.Small)
+            if (Decaf)
             {
-                return "Small Decaf Jurassic Java";
+                return $"{size} Decaf Jurassic Java";
             }
-            if (Decaf && size == Size.Medium)
+            else
             {
-                return "Medium Decaf Jurassic Java";
+                return $"{size} Jurassic Java";
             }
-            if (Decaf && size == Size.Large)
-            {
-                return "Large Decaf Jurassic Java";
-            }
-            if (size == Size.Small)
-            {
-                return "Small Jurassic Java";
-            }
-            if (size == Size.Medium)
-            {
-                return "Medium Jurassic Java";
-            }
-            if (size == Size.Large)
-            {
-                return "Large Jurassic Java";
-            }
-            return "Jurassic Java";
         }
     }
 }

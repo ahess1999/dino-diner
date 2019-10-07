@@ -71,19 +71,7 @@ namespace DinoDiner.Menu
         /// <returns>The correct name of the menu item</returns>
         public override string ToString()
         {
-            if (size == Size.Small)
-            {
-                return "Small Meteor Mac and Cheese";
-            }
-            if (size == Size.Medium)
-            {
-                return "Medium Meteor Mac and Cheese";
-            }
-            if (size == Size.Large)
-            {
-                return "Large Meteor Mac and Cheese";
-            }
-            return "Meteor Mac and Cheese";
+            return $"{size} Meteor Mac and Cheese";
         }
     }
 }

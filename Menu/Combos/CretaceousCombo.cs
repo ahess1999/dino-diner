@@ -104,36 +104,7 @@ namespace DinoDiner.Menu
         /// <returns>The correct name of the combo ordered</returns>
         public override string ToString()
         {
-            if (Entree.ToString().Equals("Brontowurst"))
-            {
-                return "Brontowurst Combo";
-            }
-            if (Entree.ToString().Equals("Dino-Nuggets"))
-            {
-                return "Dino-Nuggets Combo";
-            }
-            if (Entree.ToString().Equals("Prehistoric PB&J"))
-            {
-                return "Prehistoric PB&J Combo";
-            }
-            if (Entree.ToString().Equals("Pterodactyl Wings"))
-            {
-                return "Pterodactyl Wings Combo";
-            }
-            if (Entree.ToString().Equals("Steakosaurus Burger"))
-            {
-                return "Steakosaurus Burger Combo";
-            }
-            if (Entree.ToString().Equals("T-Rex King Burger"))
-            {
-                return "T-Rex King Burger Combo";
-            }
-            if (Entree.ToString().Equals("Veloci-Wrap"))
-            {
-                return "Veloci-Wrap Combo";
-            }
-            return "Cretaceous Combo";
-
+            return $"{Entree} Combo";
         }
     }
 }

@@ -108,31 +108,11 @@ namespace DinoDiner.Menu
         /// <returns>The correct name of the menu item</returns>
         public override string ToString()
         {
-            if (Sweet && size == Size.Small)
+            if (Sweet)
             {
-                return "Small Sweet Tyrannotea";
+                return $"{size} Sweet Tyrannotea";
             }
-            if (Sweet && size == Size.Medium)
-            {
-                return "Medium Sweet Tyrannotea";
-            }
-            if (Sweet && size == Size.Large)
-            {
-                return "Large Sweet Tyrannotea";
-            }
-            if (size == Size.Small)
-            {
-                return "Small Tyrannotea";
-            }
-            if (size == Size.Medium)
-            {
-                return "Medium Tyrannotea";
-            }
-            if (size == Size.Large)
-            {
-                return "Large Tyrannotea";
-            }
-            return "Tyrannotea";
+            return $"{size} Tyrannotea";
         }
     }
 }

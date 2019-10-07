@@ -81,19 +81,7 @@ namespace DinoDiner.Menu
         /// <returns>The correct name of the menu item</returns>
         public override string ToString()
         {
-            if(size == Size.Small)
-            {
-                return "Small Water";
-            }
-            if (size == Size.Medium)
-            {
-                return "Medium Water";
-            }
-            if (size == Size.Large)
-            {
-                return "Large Water";
-            }
-            return "Water";
+            return $"{size} Water";
         }
     }
 }
