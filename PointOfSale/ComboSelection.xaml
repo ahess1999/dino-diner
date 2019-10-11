@@ -13,10 +13,22 @@
             <Style TargetType="Button">
                 <Setter Property="Width" Value="200"/>
                 <Setter Property="Height" Value="225"/>
+                <Setter Property="Margin" Value="1"/>
+                <Setter Property="BorderThickness" Value="2"/>
             </Style>
         </WrapPanel.Resources>
-        <Button>Brontowurst Combo</Button>
-        <Button>Dino-Nuggets Combo</Button>
+        <Button>
+            <StackPanel>
+                <Image Width="100" Source="Assets/DinoDiner-01.png"/>
+                <TextBlock>Brontowurst combo</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button>
+            <Button.Background>
+                <ImageBrush ImageSource ="Assets/DinoDiner-02.png"/>
+            </Button.Background>
+            <TextBlock>Dino-Nuggets</TextBlock>
+        </Button>
         <Button>Steakosaurus Combo</Button>
         <Button>T-Rex King Burger Combo</Button>
         <Button>Prehistoric PB&amp;J Combo</Button>
