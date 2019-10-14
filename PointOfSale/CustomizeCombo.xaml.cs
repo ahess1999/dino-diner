@@ -1,4 +1,4 @@
-﻿/* MenuCategorySelection.xaml
+﻿/* CustomizeCombo.xaml
  * Author: Austin Hess
  */
 using System;
@@ -15,41 +15,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for MenuCategorySelection.xaml
+    /// Interaction logic for CustomizeCombo.xaml
     /// </summary>
-    public partial class MenuCategorySelection : Page
+    public partial class CustomizeCombo : Page
     {
         /// <summary>
-        /// Initializes and runs the page when called
+        /// Initializes and runs the wpf
         /// </summary>
-        public MenuCategorySelection()
+        public CustomizeCombo()
         {
             InitializeComponent();
         }
         /// <summary>
-        /// Handles the combo button and navigates to the new page
-        /// </summary>
-        /// <param name="sender">Reference to an object</param>
-        /// <param name="args">Contains event data</param>
-        void SelectCombo(object sender, RoutedEventArgs args)
-        {
-            NavigationService.Navigate(new ComboSelection());
-        }
-        /// <summary>
-        /// Handles the entree button and navigates to the new page
-        /// </summary>
-        /// <param name="sender">Reference to an object</param>
-        /// <param name="args">Contains event data</param>
-        void SelectEntree(object sender, RoutedEventArgs args)
-        {
-            NavigationService.Navigate(new EntreeSelection());
-        }
-        /// <summary>
-        /// Handles the side button and navigates to the new page
+        /// Navigates to the new page based on the button selected
         /// </summary>
         /// <param name="sender">Reference to an object</param>
         /// <param name="args">Contains event data</param>
@@ -58,7 +41,7 @@ namespace PointOfSale
             NavigationService.Navigate(new SideSelection());
         }
         /// <summary>
-        /// Handles the drink button and navigates to the new page
+        /// Navigates to the new page based on the button selected
         /// </summary>
         /// <param name="sender">Reference to an object</param>
         /// <param name="args">Contains event data</param>

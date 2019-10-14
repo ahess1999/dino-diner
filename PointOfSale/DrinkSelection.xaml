@@ -8,7 +8,51 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DrinkSelection">
 
-    <Grid>
-        
+    <Grid x:Name="drinkGrid" Background="Green">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Click="SelectSodasaurus" Grid.Column="1" Grid.Row="1">
+            <StackPanel>
+                <Image Width="50" Source="Assets/DinoDiner-14.png"/>
+                <TextBlock>Sodasaurus</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Click="SelectTyrannotea" Grid.Column="2" Grid.Row="1">
+            <StackPanel>
+                <Image Width="50" Source="Assets/DinoDiner-12.png"/>
+                <TextBlock>Tyrannotea</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Click="SelectJurassicJava" Grid.Column="1" Grid.Row="2">
+            <StackPanel>
+                <Image Width="50" Source="Assets/DinoDiner-13.png"/>
+                <TextBlock>Jurassic Java</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Click="SelectWater" Grid.Column="2" Grid.Row="2">
+            <StackPanel>
+                <Image Width="50" Source="Assets/DinoDiner-15.png"/>
+                <TextBlock HorizontalAlignment="Center">Water</TextBlock>
+            </StackPanel>
+        </Button>
+        <TextBlock Grid.Column="1" Grid.Row="3" FontSize="22" HorizontalAlignment="Left" Width="62" Grid.ColumnSpan="2" Margin="182,0,0,0">Size:</TextBlock>
+        <RadioButton x:Name="uxSmall" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Bottom" IsChecked="True">Small</RadioButton>
+        <RadioButton x:Name="uxMedium" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Bottom" Width="97" RenderTransformOrigin="1.134,0.344" Grid.ColumnSpan="2" Margin="162,0,0,0">Medium</RadioButton>
+        <RadioButton x:Name="uxLarge" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Right" FontSize="20" VerticalAlignment="Bottom">Large</RadioButton>
+        <TextBlock Grid.Column="1" Grid.Row="5" FontSize="68" FontFamily="Showcard Gothic" HorizontalAlignment="Center">Dino</TextBlock>
+        <TextBlock Grid.Column="2" Grid.Row="5" FontSize="68" FontFamily="Showcard Gothic" HorizontalAlignment="Center">Diner</TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="0" FontSize="36" FontFamily="Showcard Gothic" HorizontalAlignment="Center"><LineBreak/>Drink</TextBlock>
+        <TextBlock Grid.Column="2" Grid.Row="0" FontSize="36" FontFamily="Showcard Gothic" HorizontalAlignment="Center"><LineBreak/>Selection</TextBlock>
     </Grid>
 </Page>

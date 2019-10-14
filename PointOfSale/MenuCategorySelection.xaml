@@ -5,21 +5,29 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PointOfSale"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="500" d:DesignWidth="800"
       Title="MenuCategorySelection">
 
-    <Grid>
+    <Grid Background="Green">
         <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Click="SelectCombo" Grid.Column="0" Grid.Row="0">Combos</Button>
-        <Button Click="SelectEntree" Grid.Column="1" Grid.Row="0">Entrees</Button>
-        <Button Click="SelectSide" Grid.Column="0" Grid.Row="1">Sides</Button>
-        <Button Click="SelectDrink" Grid.Column="1" Grid.Row="1">Drinks</Button>
+        <Button Click="SelectCombo" Grid.Column="1" Grid.Row="1">Combos</Button>
+        <Button Click="SelectEntree" Grid.Column="2" Grid.Row="1">Entrees</Button>
+        <Button Click="SelectSide" Grid.Column="1" Grid.Row="2">Sides</Button>
+        <Button Click="SelectDrink" Grid.Column="2" Grid.Row="2">Drinks</Button>
+        <TextBlock Grid.Column="1" Grid.Row="4" FontSize="68" FontFamily="Showcard Gothic" HorizontalAlignment="Center">Dino</TextBlock>
+        <TextBlock Grid.Column="2" Grid.Row="4" FontSize="68" FontFamily="Showcard Gothic" HorizontalAlignment="Center">Diner</TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="0" FontSize="36" FontFamily="Showcard Gothic" HorizontalAlignment="Center"><LineBreak/>Category</TextBlock>
+        <TextBlock Grid.Column="2" Grid.Row="0" FontSize="36" FontFamily="Showcard Gothic" HorizontalAlignment="Center"><LineBreak/>Selection</TextBlock>
     </Grid>
 </Page>

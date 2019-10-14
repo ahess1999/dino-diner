@@ -54,8 +54,14 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="CustomizeCombo.xaml.cs">
+      <DependentUpon>CustomizeCombo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DrinkSelection.xaml.cs">
       <DependentUpon>DrinkSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FlavorSelection.xaml.cs">
+      <DependentUpon>FlavorSelection.xaml</DependentUpon>
     </Compile>
     <Compile Include="SideSelection.xaml.cs">
       <DependentUpon>SideSelection.xaml</DependentUpon>
@@ -64,11 +70,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CustomizeCombo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DrinkSelection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EntreeSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FlavorSelection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -128,7 +142,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Menu\Menu.csproj">
+      <Project>{2f5f801d-c838-4c96-a2be-a40c4dffb719}</Project>
+      <Name>Menu</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\DinoDiner-01.png" />
     <Resource Include="Assets\DinoDiner-02.png" />

@@ -1,4 +1,4 @@
-﻿<Page x:Class="PointOfSale.EntreeSelection"
+﻿<Page x:Class="PointOfSale.FlavorSelection"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:PointOfSale"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="EntreeSelection">
+      Title="FlavorSelection">
 
     <Grid Background="Green">
         <Grid.RowDefinitions>
@@ -25,49 +25,42 @@
         </Grid.ColumnDefinitions>
         <Button Grid.Column="1" Grid.Row="1">
             <StackPanel>
-                <Image Width="50" Source="Assets/DinoDiner-01.png"/>
-                <TextBlock>Brontowurst</TextBlock>
+                <TextBlock>Cherry</TextBlock>
             </StackPanel>
         </Button>
         <Button Grid.Column="2" Grid.Row="1">
             <StackPanel>
-                <Image Width="50" Source="Assets/DinoDiner-02.png"/>
-                <TextBlock>Dino-Nuggets</TextBlock>
+                <TextBlock>Chocolate</TextBlock>
             </StackPanel>
         </Button>
         <Button Grid.Column="1" Grid.Row="2">
             <StackPanel>
-                <Image Width="50" Source="Assets/DinoDiner-05.png"/>
-                <TextBlock>Steakosaurus</TextBlock>
+                <TextBlock>Cola</TextBlock>
             </StackPanel>
         </Button>
         <Button Grid.Column="2" Grid.Row="2">
             <StackPanel>
-                <Image Width="50" Source="Assets/DinoDiner-06.png"/>
-                <TextBlock>T-Rex King Burger</TextBlock>
+                <TextBlock>Lime</TextBlock>
             </StackPanel>
         </Button>
         <Button Grid.Column="1" Grid.Row="3">
             <StackPanel>
-                <Image Width="50" Source="Assets/DinoDiner-03.png"/>
-                <TextBlock>Prehistoric PB&amp;j</TextBlock>
+                <TextBlock>Orange</TextBlock>
             </StackPanel>
         </Button>
         <Button Grid.Column="2" Grid.Row="3">
             <StackPanel>
-                <Image Width="50" Source="Assets/DinoDiner-04.png"/>
-                <TextBlock>Pterodactyl Wings</TextBlock>
+                <TextBlock>Root Beer</TextBlock>
             </StackPanel>
         </Button>
         <Button Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2">
             <StackPanel>
-                <Image Width="50" Source="Assets/DinoDiner-07.png"/>
-                <TextBlock>Veloci-Wrap</TextBlock>
+                <TextBlock>Vanilla</TextBlock>
             </StackPanel>
         </Button>
         <TextBlock Grid.Column="1" Grid.Row="5" FontSize="68" FontFamily="Showcard Gothic" HorizontalAlignment="Center">Dino</TextBlock>
         <TextBlock Grid.Column="2" Grid.Row="5" FontSize="68" FontFamily="Showcard Gothic" HorizontalAlignment="Center">Diner</TextBlock>
-        <TextBlock Grid.Column="1" Grid.Row="0" FontSize="36" FontFamily="Showcard Gothic" HorizontalAlignment="Center">Entree</TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="0" FontSize="36" FontFamily="Showcard Gothic" HorizontalAlignment="Center">Flavor</TextBlock>
         <TextBlock Grid.Column="2" Grid.Row="0" FontSize="36" FontFamily="Showcard Gothic" HorizontalAlignment="Center">Selection</TextBlock>
     </Grid>
 </Page>

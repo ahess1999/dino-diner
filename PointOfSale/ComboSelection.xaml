@@ -5,34 +5,69 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PointOfSale"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="500" d:DesignWidth="800"
       Title="ComboSelection">
 
-    <WrapPanel>
-        <WrapPanel.Resources>
-            <Style TargetType="Button">
-                <Setter Property="Width" Value="200"/>
-                <Setter Property="Height" Value="225"/>
-                <Setter Property="Margin" Value="1"/>
-                <Setter Property="BorderThickness" Value="2"/>
-            </Style>
-        </WrapPanel.Resources>
-        <Button>
+    <Grid Background="Green">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Click="SelectBrontowurst" Grid.Column="1" Grid.Row="1">
             <StackPanel>
-                <Image Width="100" Source="Assets/DinoDiner-01.png"/>
+                <Image Width="50" Source="Assets/DinoDiner-01.png"/>
                 <TextBlock>Brontowurst combo</TextBlock>
             </StackPanel>
         </Button>
-        <Button>
-            <Button.Background>
-                <ImageBrush ImageSource ="Assets/DinoDiner-02.png"/>
-            </Button.Background>
-            <TextBlock>Dino-Nuggets</TextBlock>
+        <Button Click="SelectDinoNuggets" Grid.Column="2" Grid.Row="1">
+            <StackPanel>
+                <Image Width="50" Source="Assets/DinoDiner-02.png"/>
+                <TextBlock>Dino-Nuggets Combo</TextBlock>
+            </StackPanel>
         </Button>
-        <Button>Steakosaurus Combo</Button>
-        <Button>T-Rex King Burger Combo</Button>
-        <Button>Prehistoric PB&amp;J Combo</Button>
-        <Button>Pterodactyl Wings Combo</Button>
-        <Button>Veloci-Wrap Combo</Button>
-    </WrapPanel>
+        <Button Click="SelectSteakosaurusBurger" Grid.Column="1" Grid.Row="2">
+            <StackPanel>
+                <Image Width="50" Source="Assets/DinoDiner-05.png"/>
+                <TextBlock>Steakosaurus Combo</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Click="SelectTRexKingBurger" Grid.Column="2" Grid.Row="2">
+            <StackPanel>
+                <Image Width="50" Source="Assets/DinoDiner-06.png"/>
+                <TextBlock>T-Rex King Burger Combo</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Click="SelectPrehistoricPBJ" Grid.Column="1" Grid.Row="3">
+            <StackPanel>
+                <Image Width="50" Source="Assets/DinoDiner-03.png"/>
+                <TextBlock>Prehistoric PB&amp;j Combo</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Click="SelectPterodactylWings" Grid.Column="2" Grid.Row="3">
+            <StackPanel>
+                <Image Width="50" Source="Assets/DinoDiner-04.png"/>
+                <TextBlock>Pterodactyl Wings Combo</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Click="SelectVelociWrap" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2">
+            <StackPanel>
+                <Image Width="50" Source="Assets/DinoDiner-07.png"/>
+                <TextBlock>Veloci-Wrap Combo</TextBlock>
+            </StackPanel>
+        </Button>
+        <TextBlock Grid.Column="1" Grid.Row="5" FontSize="68" FontFamily="Showcard Gothic" HorizontalAlignment="Center">Dino</TextBlock>
+        <TextBlock Grid.Column="2" Grid.Row="5" FontSize="68" FontFamily="Showcard Gothic" HorizontalAlignment="Center">Diner</TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="0" FontSize="36" FontFamily="Showcard Gothic" HorizontalAlignment="Center">Combo</TextBlock>
+        <TextBlock Grid.Column="2" Grid.Row="0" FontSize="36" FontFamily="Showcard Gothic" HorizontalAlignment="Center">Selection</TextBlock>
+    </Grid>
 </Page>
