@@ -4,13 +4,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class that defines Sodasaurus drink menu item
     /// </summary>
-    public class Sodasaurus : Drink
+    public class Sodasaurus : Drink, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Private variable used to call from the enum
@@ -19,7 +20,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Property that accesses the enum to set the flavor of the sodasaurus
         /// </summary>
-        public SodasaurusFlavor Flavor { get { return flavor; } set { flavor = value; } }
+        public SodasaurusFlavor Flavor { get { return flavor; } set { flavor = value; NotifyOfPropertyChanged("Flavor"); } }
         /// <summary>
         /// Private variable that updates the size of the drinks
         /// </summary>
@@ -47,9 +48,55 @@ namespace DinoDiner.Menu
                         Calories = 208;
                         break;
                 }
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
             }
             get { return size; }
         }
+
+        /// <summary>
+        /// Returns the description or the name and all the contents of the item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+        /// <summary>
+        /// Adds to a list special cases for menu items
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (flavor == SodasaurusFlavor.Cola) special.Add("Cola");
+                if (flavor == SodasaurusFlavor.Orange) special.Add("Orange");
+                if (flavor == SodasaurusFlavor.Vanilla) special.Add("Vanilla");
+                if (flavor == SodasaurusFlavor.Chocolate) special.Add("Chocolate");
+                if (flavor == SodasaurusFlavor.RootBeer) special.Add("Root Beer");
+                if (flavor == SodasaurusFlavor.Cherry) special.Add("Cherry");
+                if (flavor == SodasaurusFlavor.Lime) special.Add("Lime");
+                if (!Ice) special.Add("Hold Ice");
+                return special.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// An event handler for PropertyChanged events for special and ingredients
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// Invokes a property change
+        /// </summary>
+        /// <param name="propertyName">The property to change</param>
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// Constructor for Sodasaurus that sets the default calories and price and defines the ingredients in the item
         /// </summary>

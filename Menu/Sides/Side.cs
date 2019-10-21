@@ -4,13 +4,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Base class for the side menu options
     /// </summary>
-    public abstract class Side : IMenuItem
+    public abstract class Side : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Read-only list of ingredients for the sides
@@ -35,6 +36,19 @@ namespace DinoDiner.Menu
         /// Gets or sets the size
         /// </summary>
         public virtual Size Size { get; set; }
+
+        /// <summary>
+        /// Returns the description or the name and all the contents of the item
+        /// </summary>
+        public virtual string Description { get; }
+        /// <summary>
+        /// Adds to a list special cases for menu items
+        /// </summary>
+        public virtual string[] Special { get; }
+        /// <summary>
+        /// An event handler for PropertyChanged events for special and ingredients
+        /// </summary>
+        public virtual event PropertyChangedEventHandler PropertyChanged;
 
     }
 }

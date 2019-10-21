@@ -83,5 +83,96 @@ namespace MenuTest.Sides
             ms.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, ms.Size);
         }
+
+        [Fact]
+        public void DescriptionShouldBeCorrectForSmall()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            ms.Size = Size.Small;
+            Assert.Equal("Small Mezzorella Sticks", ms.Description);
+        }
+
+        [Fact]
+        public void DescriptionShouldBeCorrectForMedium()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            ms.Size = Size.Medium;
+            Assert.Equal("Medium Mezzorella Sticks", ms.Description);
+        }
+
+        [Fact]
+        public void DescriptionShouldBeCorrectForLarge()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            ms.Size = Size.Large;
+            Assert.Equal("Large Mezzorella Sticks", ms.Description);
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmptyByDefault()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.Empty(ms.Special);
+        }
+
+        [Fact]
+        public void ChangingSizeToSmallShouldNotifyCaloriesChange()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.PropertyChanged(ms, "Calories", () =>
+            {
+                ms.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToMediumShouldNotifyCaloriesChange()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.PropertyChanged(ms, "Calories", () =>
+            {
+                ms.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToLargeShouldNotifyCaloriesChange()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.PropertyChanged(ms, "Calories", () =>
+            {
+                ms.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToSmallShouldNotifyPriceChange()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.PropertyChanged(ms, "Price", () =>
+            {
+                ms.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToMediumShouldNotifyPriceChange()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.PropertyChanged(ms, "Price", () =>
+            {
+                ms.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToLargeShouldNotifyPriceChange()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.PropertyChanged(ms, "Price", () =>
+            {
+                ms.Size = Size.Large;
+            });
+        }
     }
 }

@@ -4,13 +4,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// DinoNuggets class defines the menu item: Dino Nuggets and it's ingredients along with the price and calories.
     /// </summary>
-    public class DinoNuggets : Entree
+    public class DinoNuggets : Entree, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Boolean that tells the program whether or not the customer wants to add more nuggets
@@ -32,6 +33,46 @@ namespace DinoDiner.Menu
                 return ingredients;
             }
         }
+
+        /// <summary>
+        /// Returns the description or the name and all the contents of the item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+        /// <summary>
+        /// Adds to a list special cases for menu items
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if(NuggetCount > 6)
+                {
+                    special.Add(NuggetCount + " Extra Nuggets");
+                }
+                return special.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// An event handler for PropertyChanged events for special and ingredients
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// Invokes a property change
+        /// </summary>
+        /// <param name="propertyName">The property to change</param>
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// Constuctor that sets the price and calories of the Dino Nuggets.
         /// </summary>
@@ -48,6 +89,9 @@ namespace DinoDiner.Menu
             Price += 0.25;
             Calories += 59;
             NuggetCount++;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Calories");
+            NotifyOfPropertyChanged("Price");
         }
 
         /// <summary>

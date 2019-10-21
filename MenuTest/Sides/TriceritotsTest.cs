@@ -83,5 +83,96 @@ namespace MenuTest.Sides
             tt.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, tt.Size);
         }
+
+        [Fact]
+        public void DescriptionShouldBeCorrectForSmall()
+        {
+            Triceritots t = new Triceritots();
+            t.Size = Size.Small;
+            Assert.Equal("Small Triceritots", t.Description);
+        }
+
+        [Fact]
+        public void DescriptionShouldBeCorrectForMedium()
+        {
+            Triceritots t = new Triceritots();
+            t.Size = Size.Medium;
+            Assert.Equal("Medium Triceritots", t.Description);
+        }
+
+        [Fact]
+        public void DescriptionShouldBeCorrectForLarge()
+        {
+            Triceritots t = new Triceritots();
+            t.Size = Size.Large;
+            Assert.Equal("Large Triceritots", t.Description);
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmptyByDefault()
+        {
+            Triceritots t = new Triceritots();
+            Assert.Empty(t.Special);
+        }
+
+        [Fact]
+        public void ChangingSizeToSmallShouldNotifyCaloriesChange()
+        {
+            Triceritots t = new Triceritots();
+            Assert.PropertyChanged(t, "Calories", () =>
+            {
+                t.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToMediumShouldNotifyCaloriesChange()
+        {
+            Triceritots t = new Triceritots();
+            Assert.PropertyChanged(t, "Calories", () =>
+            {
+                t.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToLargeShouldNotifyCaloriesChange()
+        {
+            Triceritots t = new Triceritots();
+            Assert.PropertyChanged(t, "Calories", () =>
+            {
+                t.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToSmallShouldNotifyPriceChange()
+        {
+            Triceritots t = new Triceritots();
+            Assert.PropertyChanged(t, "Price", () =>
+            {
+                t.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToMediumShouldNotifyPriceChange()
+        {
+            Triceritots t = new Triceritots();
+            Assert.PropertyChanged(t, "Price", () =>
+            {
+                t.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToLargeShouldNotifyPriceChange()
+        {
+            Triceritots t = new Triceritots();
+            Assert.PropertyChanged(t, "Price", () =>
+            {
+                t.Size = Size.Large;
+            });
+        }
     }
 }

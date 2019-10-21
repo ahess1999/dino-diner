@@ -4,13 +4,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class that defines Water drink menu item
     /// </summary>
-    public class Water : Drink
+    public class Water : Drink, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Boolean that tells the program whether or not to add lemon
@@ -43,6 +44,8 @@ namespace DinoDiner.Menu
                         Calories = 0;
                         break;
                 }
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
             }
             get { return size; }
         }
@@ -52,7 +55,47 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             this.Lemon = true;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
+
+        /// <summary>
+        /// Returns the description or the name and all the contents of the item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+        /// <summary>
+        /// Adds to a list special cases for menu items
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (Lemon) special.Add("Add Lemon");
+                if (!Ice) special.Add("Hold Ice");
+                return special.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// An event handler for PropertyChanged events for special and ingredients
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// Invokes a property change
+        /// </summary>
+        /// <param name="propertyName">The property to change</param>
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// Constructor for Water that sets the default calories and price and defines the ingredients in the item
         /// </summary>

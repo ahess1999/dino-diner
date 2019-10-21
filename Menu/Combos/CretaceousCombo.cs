@@ -5,34 +5,86 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class that defines comboes for the menu in dino diner
     /// </summary>
-    public class CretaceousCombo : IMenuItem
+    public class CretaceousCombo : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// An event handler for PropertyChanged events for special and ingredients
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// Invokes a property change
+        /// </summary>
+        /// <param name="propertyName">The property to change</param>
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        /// <summary>
+        /// Privated variable for an Entree
+        /// </summary>
+        private Entree entree;
         /// <summary>
         /// Property that gets and sets the entree that the user selects
         /// </summary>
-        public Entree Entree { get; set; }
+        public Entree Entree
+        {
+            get { return entree; }
+            protected set
+            {
+                entree = value;
+                entree.PropertyChanged += (object sender, PropertyChangedEventArgs args) =>
+                {
+                    NotifyOfPropertyChanged(args.PropertyName);
+                };
+            }
+        }
         /// <summary>
         /// Private variable that gets and returns the side selected and the specific size for that side
         /// </summary>
-        private Side side { get { return side; } set { this.side = value; this.side.Size = this.size; } }
+        private Side side;
         /// <summary>
         /// Property that gets and sets the side that the user selects
         /// </summary>
-        public Side Side { get; set; }
+        public Side Side
+        {
+            get { return side; }
+            set
+            {
+                this.side = value;
+                this.side.Size = this.size;
+                NotifyOfPropertyChanged("Ingredients");
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+            }
+        }
         /// <summary>
         /// Private variable that gets and returns the drink selected and the specific size for that side
         /// </summary>
-        private Drink drink { get { return drink; } set { this.drink = value; this.drink.Size = this.Size; } }
+        private Drink drink;
         /// <summary>
         /// Property that gets and sets the drink that the user selects
         /// </summary>
-        public Drink Drink { get; set; }
+        public Drink Drink
+        {
+            get { return drink; }
+            set
+            {
+                this.drink = value;
+                this.drink.Size = this.size;
+                NotifyOfPropertyChanged("Ingredients");
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+            }
+        }
         /// <summary>
         /// Property that gets the price of the entree, side, and drink and lowers the price by 25 cents for the combo
         /// </summary>
@@ -71,6 +123,10 @@ namespace DinoDiner.Menu
                 size = value;
                 Drink.Size = value;
                 Side.Size = value;
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
             }
         }
         /// <summary>
@@ -87,6 +143,33 @@ namespace DinoDiner.Menu
                 return ingredients;
             }
         }
+        /// <summary>
+        /// Returns the description or the name and all the contents of the item
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+        /// <summary>
+        /// Adds to a list special cases for menu items
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                special.AddRange(Entree.Special);
+                special.Add(Side.Description);
+                special.AddRange(Side.Special);
+                special.Add(Drink.Description);
+                special.AddRange(Drink.Special);
+                return special.ToArray();
+            }
+        }
+
         /// <summary>
         /// Constructor for the CretaceousCombo class that sets the Entree to what the user selects, sets side to Fryceritops by default, and drink to sodasaurus by default
         /// </summary>

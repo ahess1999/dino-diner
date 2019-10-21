@@ -4,13 +4,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Triceritots side menu option
     /// </summary>
-    public class Triceritots : Side
+    public class Triceritots : Side, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Controls the size of the side that is being ordered
@@ -39,9 +40,47 @@ namespace DinoDiner.Menu
                         Calories = 590;
                         break;
                 }
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
             }
             get { return size; }
         }
+
+        /// <summary>
+        /// Returns the description or the name and all the contents of the item
+        /// </summary>
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+        /// <summary>
+        /// Adds to a list special cases for menu items
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// An event handler for PropertyChanged events for special and ingredients
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// Invokes a property change
+        /// </summary>
+        /// <param name="propertyName">The property to change</param>
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// Constructor that sets the default ingredients and the size and price to the smallest size
         /// </summary>

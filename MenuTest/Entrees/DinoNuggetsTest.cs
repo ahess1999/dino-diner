@@ -86,5 +86,66 @@ namespace MenuTest.Entrees
             dn.AddNugget();
             Assert.Equal<uint>(dn.Calories, 59*9);
         }
+
+        [Fact]
+        public void DescriptionShouldBeCorrect()
+        {
+            DinoNuggets dn = new DinoNuggets();
+            Assert.Equal("Dino-Nuggets", dn.Description);
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmptyByDefault()
+        {
+            DinoNuggets dn = new DinoNuggets();
+            Assert.Empty(dn.Special);
+        }
+
+        [Fact]
+        public void AddingNuggetsShouldAddToSpecial()
+        {
+            DinoNuggets dn = new DinoNuggets();
+            dn.AddNugget();
+            int nuggetCount = 0;
+            foreach (string ingredient in dn.Ingredients)
+            {
+                if (ingredient.Equals("Chicken Nugget")) nuggetCount++;
+            }
+            Assert.Collection<string>(dn.Special,
+                item =>
+                {
+                    Assert.Equal(nuggetCount + " Extra Nuggets", item);
+                });
+        }
+
+        [Fact]
+        public void AddingNuggetsShouldNotifyIngredientChange()
+        {
+            DinoNuggets dn = new DinoNuggets();
+            Assert.PropertyChanged(dn, "Ingredients", () =>
+            {
+                dn.AddNugget();
+            });
+        }
+
+        [Fact]
+        public void AddingNuggetsShouldNotifyCalorieChange()
+        {
+            DinoNuggets dn = new DinoNuggets();
+            Assert.PropertyChanged(dn, "Calories", () =>
+            {
+                dn.AddNugget();
+            });
+        }
+
+        [Fact]
+        public void AddingNuggetsShouldNotifyPriceChange()
+        {
+            DinoNuggets dn = new DinoNuggets();
+            Assert.PropertyChanged(dn, "Price", () =>
+            {
+                dn.AddNugget();
+            });
+        }
     }
 }

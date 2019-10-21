@@ -178,5 +178,163 @@ namespace MenuTest.Drinks
                 Assert.Equal<int>(2, water.Ingredients.Count);
             }
         }
+
+        [Fact]
+        public void DescriptionShouldBeCorrect()
+        {
+            Water w = new Water();
+            Assert.Equal($"{w.Size} Water", w.Description);
+        }
+
+        [Fact]
+        public void DescriptionShouldBeCorrectForSmall()
+        {
+            Water w = new Water();
+            w.Size = Size.Small;
+            Assert.Equal($"Small Water", w.Description);
+        }
+
+        [Fact]
+        public void DescriptionShouldBeCorrectForMedium()
+        {
+            Water w = new Water();
+            w.Size = Size.Medium;
+            Assert.Equal($"Medium Water", w.Description);
+        }
+
+        [Fact]
+        public void DescriptionShouldBeCorrectForLarge()
+        {
+            Water w = new Water();
+            w.Size = Size.Large;
+            Assert.Equal($"Large Water", w.Description);
+        }
+
+        [Fact]
+        public void AddLemonShouldAddToSpecial()
+        {
+            Water w = new Water();
+            w.AddLemon();
+            if (w.Lemon == true)
+            {
+                Assert.Collection<string>(w.Special,
+                    item =>
+                    {
+                        Assert.Equal("Add Lemon", item);
+                    });
+            }
+        }
+
+        [Fact]
+        public void HoldingIceShouldAddToSpecial()
+        {
+            Water w = new Water();
+            w.HoldIce();
+            if (w.Ice == true)
+            {
+                Assert.Collection<string>(w.Special,
+                    item =>
+                    {
+                        Assert.Equal("Hold Ice", item);
+                    });
+            }
+        }
+
+        [Fact]
+        public void AddLemonAndHoldingIceShouldAddToSpecial()
+        {
+            Water w = new Water();
+            w.AddLemon();
+            w.HoldIce();
+                Assert.Collection<string>(w.Special,
+                    item =>
+                    {
+                        Assert.Equal("Add Lemon", item);
+                    },
+                    item =>
+                    {
+                        Assert.Equal("Hold Ice", item);
+                    });
+        }
+
+        [Fact]
+        public void AddingLemonShouldNotifySpecialChange()
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Special", () =>
+            {
+                w.AddLemon();
+            });
+        }
+
+        [Fact]
+        public void AddingLemonShouldNotifyIngredientChange()
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Ingredients", () =>
+            {
+                w.AddLemon();
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToSmallShouldNotifyCaloriesChange()
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Calories", () =>
+            {
+                w.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToMediumShouldNotifyCaloriesChange()
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Calories", () =>
+            {
+                w.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToLargeShouldNotifyCaloriesChange()
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Calories", () =>
+            {
+                w.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToSmallShouldNotifyPriceChange()
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Price", () =>
+            {
+                w.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToMediumShouldNotifyPriceChange()
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Price", () =>
+            {
+                w.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToLargeShouldNotifyPriceChange()
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Price", () =>
+            {
+                w.Size = Size.Large;
+            });
+        }
     }
 }
