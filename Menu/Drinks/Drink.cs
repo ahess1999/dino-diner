@@ -33,9 +33,25 @@ namespace DinoDiner.Menu
             get { return ingredients; }
         }
         /// <summary>
+        /// Local size variable
+        /// </summary>
+        private Size size;
+        /// <summary>
         /// Gets or sets the size
         /// </summary>
-        public virtual Size Size { get; set; }
+        public virtual Size Size
+        {
+            get
+            {
+                return size;
+            }
+            set
+            {
+                size = value;
+                NotifyOfPropertyChanged("Description");
+                NotifyOfPropertyChanged("Size");
+            }
+        }
         /// <summary>
         /// Gets a sets the Ice property
         /// </summary>
@@ -58,6 +74,14 @@ namespace DinoDiner.Menu
         public void HoldIce()
         {
             this.Ice = false;
+        }
+        /// <summary>
+        /// Invokes a property change
+        /// </summary>
+        /// <param name="propertyName">The property to change</param>
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

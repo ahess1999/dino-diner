@@ -20,7 +20,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Property that accesses the enum to set the flavor of the sodasaurus
         /// </summary>
-        public SodasaurusFlavor Flavor { get { return flavor; } set { flavor = value; NotifyOfPropertyChanged("Flavor"); } }
+        public SodasaurusFlavor Flavor { get { return flavor; } set { flavor = value; NotifyOfPropertyChanged("Description"); } }
         /// <summary>
         /// Private variable that updates the size of the drinks
         /// </summary>
@@ -48,6 +48,7 @@ namespace DinoDiner.Menu
                         Calories = 208;
                         break;
                 }
+                NotifyOfPropertyChanged("Description");
                 NotifyOfPropertyChanged("Price");
                 NotifyOfPropertyChanged("Calories");
             }
@@ -72,13 +73,6 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> special = new List<string>();
-                if (flavor == SodasaurusFlavor.Cola) special.Add("Cola");
-                if (flavor == SodasaurusFlavor.Orange) special.Add("Orange");
-                if (flavor == SodasaurusFlavor.Vanilla) special.Add("Vanilla");
-                if (flavor == SodasaurusFlavor.Chocolate) special.Add("Chocolate");
-                if (flavor == SodasaurusFlavor.RootBeer) special.Add("Root Beer");
-                if (flavor == SodasaurusFlavor.Cherry) special.Add("Cherry");
-                if (flavor == SodasaurusFlavor.Lime) special.Add("Lime");
                 if (!Ice) special.Add("Hold Ice");
                 return special.ToArray();
             }

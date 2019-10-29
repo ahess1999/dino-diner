@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -24,11 +25,139 @@ namespace PointOfSale
     public partial class EntreeSelection : Page
     {
         /// <summary>
+        /// Private variable for entree
+        /// </summary>
+        private Entree entree;
+        /// <summary>
         /// Initializes and runs the form when called
         /// </summary>
         public EntreeSelection()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Intializes and runs the page when called
+        /// </summary>
+        public EntreeSelection(Entree entree)
+        {
+            InitializeComponent();
+            this.entree = entree;
+        }
+
+        /// <summary>
+        /// Displays and adds Brontowurst to the order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnSelectBrontowurst(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                entree = new Brontowurst();
+                order.Add(entree);
+            }
+            NavigationService.Navigate(new MenuCategorySelection());
+        }
+
+        /// <summary>
+        /// Displays and adds Dino-Nuggets to the order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnSelectDinoNuggets(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                entree = new DinoNuggets();
+                order.Add(entree);
+            }
+            NavigationService.Navigate(new MenuCategorySelection());
+        }
+
+        /// <summary>
+        /// Displays and adds Prehistoric PB&J to the order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnSelectPrehistoricPBJ(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                PrehistoricPBJ pbj = new PrehistoricPBJ();
+                order.Add(pbj);
+                NavigationService.Navigate(new CustomizePrehistoricPBJ(pbj));
+            }
+        }
+
+        /// <summary>
+        /// Displays and adds Pterodactyl Wings to the order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnSelectPterodactylWings(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                entree = new PterodactylWings();
+                order.Add(entree);
+            }
+            NavigationService.Navigate(new MenuCategorySelection());
+        }
+
+        /// <summary>
+        /// Displays and adds Steakosaurus Burger to the order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnSelectSteakosaurusBurger(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                entree = new SteakosaurusBurger();
+                order.Add(entree);
+            }
+            NavigationService.Navigate(new MenuCategorySelection());
+        }
+
+        /// <summary>
+        /// Displays and adds T-Rex King Burger to the order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnSelectTRexKingBurger(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                entree = new TRexKingBurger();
+                order.Add(entree);
+            }
+            NavigationService.Navigate(new MenuCategorySelection());
+        }
+
+        /// <summary>
+        /// Displays and adds Veloci-Wrap to the order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnSelectVelociWrap(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                entree = new VelociWrap();
+                order.Add(entree);
+            }
+            NavigationService.Navigate(new MenuCategorySelection());
+        }
+
+        /// <summary>
+        /// Sends the user back to the MenuCategorySelection page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void ReturnToMenuSelection(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new MenuCategorySelection());
         }
     }
 }

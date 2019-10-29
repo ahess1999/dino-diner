@@ -57,11 +57,17 @@
     <Compile Include="CustomizeCombo.xaml.cs">
       <DependentUpon>CustomizeCombo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomizePrehistoricPBJ.xaml.cs">
+      <DependentUpon>CustomizePrehistoricPBJ.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DrinkSelection.xaml.cs">
       <DependentUpon>DrinkSelection.xaml</DependentUpon>
     </Compile>
     <Compile Include="FlavorSelection.xaml.cs">
       <DependentUpon>FlavorSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrderList.xaml.cs">
+      <DependentUpon>OrderList.xaml</DependentUpon>
     </Compile>
     <Compile Include="SideSelection.xaml.cs">
       <DependentUpon>SideSelection.xaml</DependentUpon>
@@ -71,6 +77,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CustomizeCombo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomizePrehistoricPBJ.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -105,6 +115,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MenuCategorySelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OrderList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

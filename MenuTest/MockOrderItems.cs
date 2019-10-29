@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using DinoDiner.Menu;
+using System.ComponentModel;
 
 namespace MenuTest
 {
@@ -26,6 +27,7 @@ namespace MenuTest
         /// Adds to a list special cases for menu items
         /// </summary>
         public string[] Special { get; set; }
+
 
         public class MockOrderItem1 : IOrderItem
         {
@@ -56,6 +58,7 @@ namespace MenuTest
             {
                 this.Price = price;
             }
+
         }
 
         public class MockOrderItem2 : IOrderItem
@@ -118,6 +121,7 @@ namespace MenuTest
             {
                 this.Price = price;
             }
+
         }
     }
 }

@@ -49,6 +49,7 @@ namespace DinoDiner.Menu
                         Calories = 8;
                         break;
                 }
+                NotifyOfPropertyChanged("Description");
                 NotifyOfPropertyChanged("Price");
                 NotifyOfPropertyChanged("Calories");
             }
@@ -69,6 +70,7 @@ namespace DinoDiner.Menu
         public void DecafJava()
         {
             this.Decaf = true;
+            NotifyOfPropertyChanged("Description");
         }
         /// <summary>
         /// Method to add ice

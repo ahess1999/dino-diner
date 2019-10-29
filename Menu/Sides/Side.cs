@@ -31,11 +31,26 @@ namespace DinoDiner.Menu
         /// Gets the ingredients list
         /// </summary>
         public virtual List<string> Ingredients { get { return ingredients; } }
-
+        /// <summary>
+        /// Local variable for the size
+        /// </summary>
+        private Size size;
         /// <summary>
         /// Gets or sets the size
         /// </summary>
-        public virtual Size Size { get; set; }
+        public virtual Size Size
+        {
+            get
+            {
+                return size;
+            }
+            set
+            {
+                size = value;
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Description");
+            }
+        }
 
         /// <summary>
         /// Returns the description or the name and all the contents of the item
@@ -49,6 +64,13 @@ namespace DinoDiner.Menu
         /// An event handler for PropertyChanged events for special and ingredients
         /// </summary>
         public virtual event PropertyChangedEventHandler PropertyChanged;
-
+        /// <summary>
+        /// Invokes a property change
+        /// </summary>
+        /// <param name="propertyName">The property to change</param>
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

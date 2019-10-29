@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PointOfSale"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="750" d:DesignWidth="1000"
       Title="SideSelection">
 
     <Grid Background="Green">
@@ -22,34 +22,39 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Grid.Column="1" Grid.Row="1">
+        <Button Click="OnSelectFryceritops" Grid.Column="1" Grid.Row="1">
             <StackPanel>
                 <Image Width="50" Source="Assets/DinoDiner-08.png"/>
                 <TextBlock>Fryceritops</TextBlock>
             </StackPanel>
         </Button>
-        <Button Grid.Column="2" Grid.Row="1">
+        <Button Click="OnSelectTriceritots" Grid.Column="2" Grid.Row="1">
             <StackPanel>
                 <Image Width="50" Source="Assets/DinoDiner-11.png"/>
                 <TextBlock>Triceritots</TextBlock>
             </StackPanel>
         </Button>
-        <Button Grid.Column="1" Grid.Row="2">
+        <Button Click="OnSelectMeteorMacAndCheese" Grid.Column="1" Grid.Row="2">
             <StackPanel>
                 <Image Width="50" Source="Assets/DinoDiner-09.png"/>
                 <TextBlock>Meteor Mac &amp; Cheese</TextBlock>
             </StackPanel>
         </Button>
-        <Button Grid.Column="2" Grid.Row="2">
+        <Button Click="OnSelectMezzorellaSticks" Grid.Column="2" Grid.Row="2">
             <StackPanel>
                 <Image Width="50" Source="Assets/DinoDiner-10.png"/>
                 <TextBlock>Mezzorella Sticks</TextBlock>
             </StackPanel>
         </Button>
-        <TextBlock Grid.Column="1" Grid.Row="3" FontSize="22" HorizontalAlignment="Left" Width="62" Grid.ColumnSpan="2" Margin="182,0,0,0">Size:</TextBlock>
-        <RadioButton x:Name="uxSmall" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Bottom" IsChecked="True">Small</RadioButton>
-        <RadioButton x:Name="uxMedium" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Bottom" Width="97" RenderTransformOrigin="1.134,0.344" Grid.ColumnSpan="2" Margin="162,0,0,0">Medium</RadioButton>
-        <RadioButton x:Name="uxLarge" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Right" FontSize="20" VerticalAlignment="Bottom">Large</RadioButton>
+        <Button Click="ReturnToMenuSelection" Grid.Column="1" Grid.Row="3" Margin="0,0,0,50" Grid.ColumnSpan="2">
+            <StackPanel>
+                <TextBlock>Done</TextBlock>
+            </StackPanel>
+        </Button>
+        <TextBlock Grid.Column="1" Grid.Row="3" FontSize="22" HorizontalAlignment="Left" Width="62" Margin="197,80,0,10" Grid.RowSpan="2" Grid.ColumnSpan="2">Size:</TextBlock>
+        <RadioButton x:Name="uxSmall" Tag="Small" Click="OnChangeSize" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Bottom" IsChecked="True">Small</RadioButton>
+        <RadioButton x:Name="uxMedium" Tag="Medium" Click="OnChangeSize" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Bottom" Width="97" RenderTransformOrigin="1.134,0.344" Margin="162,0,0,0" Grid.ColumnSpan="2">Medium</RadioButton>
+        <RadioButton x:Name="uxLarge" Tag="Large" Click="OnChangeSize" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Right" FontSize="20" VerticalAlignment="Bottom">Large</RadioButton>
         <TextBlock Grid.Column="1" Grid.Row="5" FontSize="68" FontFamily="Showcard Gothic" HorizontalAlignment="Center">Dino</TextBlock>
         <TextBlock Grid.Column="2" Grid.Row="5" FontSize="68" FontFamily="Showcard Gothic" HorizontalAlignment="Center">Diner</TextBlock>
         <TextBlock Grid.Column="1" Grid.Row="0" FontSize="36" FontFamily="Showcard Gothic" HorizontalAlignment="Center"><LineBreak/>Side</TextBlock>

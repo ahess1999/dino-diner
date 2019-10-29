@@ -4,13 +4,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Interface for ordering items off the menu
     /// </summary>
-    public interface IOrderItem
+    public interface IOrderItem : INotifyPropertyChanged
     {
         /// <summary>
         /// Price of item

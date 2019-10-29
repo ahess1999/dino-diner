@@ -43,5 +43,13 @@ namespace DinoDiner.Menu
         /// An event handler for PropertyChanged events for special and ingredients
         /// </summary>
         public virtual event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// Invokes a property change
+        /// </summary>
+        /// <param name="propertyName">The property to change</param>
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
