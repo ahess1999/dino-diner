@@ -127,5 +127,14 @@ namespace DinoDiner.Menu
         {
             return $"{size} Water";
         }
+
+        /// <summary>
+        /// Method to hold the ice in the drink
+        /// </summary>
+        public override void HoldIce()
+        {
+            this.Ice = false;
+            NotifyOfPropertyChanged("Special");
+        }
     }
 }

@@ -111,7 +111,7 @@ namespace PointOfSale
             {
                 side.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
             }
-            NavigationService.Navigate(new MenuCategorySelection());
+            NavigationService.GoBack();
         }
 
         /// <summary>
@@ -121,7 +121,7 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void ReturnToMenuSelection(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new MenuCategorySelection());
+            NavigationService.GoBack();
         }
     }
 }

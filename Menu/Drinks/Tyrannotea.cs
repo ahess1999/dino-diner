@@ -16,7 +16,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Boolean that tells the program whether or not to add sweetner
         /// </summary>
-        public bool Sweet { get; set; } = false;
+        public override bool Sweet { get; set; } = false;
         /// <summary>
         /// Boolean that tells the program whether or not to add lemon
         /// </summary>
@@ -59,17 +59,18 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Method to add sweetner
         /// </summary>
-        public void AddSweetner()
+        public override void AddSweetner()
         {
             this.Sweet = true;
             Calories *= 2;
             NotifyOfPropertyChanged("Ingredients");
             NotifyOfPropertyChanged("Calories");
+            NotifyOfPropertyChanged("Description");
         }
         /// <summary>
         /// Method to remove sweetner
         /// </summary>
-        public void RemoveSweetner()
+        public override void RemoveSweetner()
         {
             if (Sweet)
             {
@@ -78,6 +79,7 @@ namespace DinoDiner.Menu
             }
             NotifyOfPropertyChanged("Ingredients");
             NotifyOfPropertyChanged("Calories");
+            NotifyOfPropertyChanged("Description");
         }
         /// <summary>
         /// Method to add lemon
@@ -162,6 +164,15 @@ namespace DinoDiner.Menu
                 return $"{size} Sweet Tyrannotea";
             }
             return $"{size} Tyrannotea";
+        }
+
+        /// <summary>
+        /// Method to hold the ice in the drink
+        /// </summary>
+        public override void HoldIce()
+        {
+            this.Ice = false;
+            NotifyOfPropertyChanged("Special");
         }
     }
 }

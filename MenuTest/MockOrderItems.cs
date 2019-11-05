@@ -13,7 +13,7 @@ namespace MenuTest
     /// <summary>
     /// Creates mock items to test the funtionality of the order class
     /// </summary>
-    public class MockOrderItems : IOrderItem
+    /*public class MockOrderItems : IOrderItem
     {
         /// <summary>
         /// Returns the description or the name and all the contents of the item
@@ -123,5 +123,5 @@ namespace MenuTest
             }
 
         }
-    }
+    }*/
 }

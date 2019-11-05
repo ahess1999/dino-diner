@@ -122,5 +122,14 @@ namespace DinoDiner.Menu
         {
             return $"{size} {flavor} Sodasaurus";
         }
+
+        /// <summary>
+        /// Method to hold the ice in the drink
+        /// </summary>
+        public override void HoldIce()
+        {
+            this.Ice = false;
+            NotifyOfPropertyChanged("Special");
+        }
     }
 }

@@ -53,9 +53,13 @@ namespace DinoDiner.Menu
             }
         }
         /// <summary>
-        /// Gets a sets the Ice property
+        /// Gets and sets the Ice property
         /// </summary>
         public virtual bool Ice { get; set; } = true;
+        /// <summary>
+        /// Gets and sets the Sweet property
+        /// </summary>
+        public virtual bool Sweet { get; set; } = false;
         /// <summary>
         /// Returns the description or the name and all the contents of the item
         /// </summary>
@@ -71,9 +75,10 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Method to hold the ice in the drink
         /// </summary>
-        public void HoldIce()
+        public virtual void HoldIce()
         {
             this.Ice = false;
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// Invokes a property change
@@ -82,6 +87,31 @@ namespace DinoDiner.Menu
         protected void NotifyOfPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Method to add sweetner
+        /// </summary>
+        public virtual void AddSweetner()
+        {
+            this.Sweet = true;
+            Calories *= 2;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Calories");
+            NotifyOfPropertyChanged("Description");
+        }
+        /// <summary>
+        /// Method to remove sweetner
+        /// </summary>
+        public virtual void RemoveSweetner()
+        {
+            if (Sweet)
+            {
+                this.Sweet = false;
+                Calories = Calories / 2;
+            }
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Calories");
         }
     }
 }

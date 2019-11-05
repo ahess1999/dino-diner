@@ -390,7 +390,7 @@ namespace MenuTest
             JurassicJava java = new JurassicJava();
             Assert.PropertyChanged(java, "Special", () =>
             {
-                java.LeaveRoomForCream();
+                java.LeaveSpaceForCream();
             });
         }
 
@@ -469,7 +469,7 @@ namespace MenuTest
             Tyrannotea tea = new Tyrannotea();
             Assert.PropertyChanged(tea, "Description", () =>
             {
-                tea.Sweet = true;
+                tea.AddSweetner();
             });
         }
 

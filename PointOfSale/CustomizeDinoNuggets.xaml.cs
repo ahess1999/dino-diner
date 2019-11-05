@@ -1,4 +1,4 @@
-﻿/* CustomizePrehistoricPBJ.xaml
+﻿/* CustomizeDinoNuggets.xaml
  * Author: Austin Hess
  */
 using System;
@@ -20,42 +20,33 @@ using DinoDiner.Menu;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CustomizePrehistoricPBJ.xaml
+    /// Interaction logic for CustomizeDinoNuggets.xaml
     /// </summary>
-    public partial class CustomizePrehistoricPBJ : Page
+    public partial class CustomizeDinoNuggets : Page
     {
         /// <summary>
-        /// Private variable to hold the pbj
+        /// Private backing variable
         /// </summary>
-        private PrehistoricPBJ pbj;
+        private DinoNuggets dn;
         /// <summary>
-        /// Initializes and runs the page when called
+        /// Constructor
         /// </summary>
-        public CustomizePrehistoricPBJ(PrehistoricPBJ pbj)
+        public CustomizeDinoNuggets(DinoNuggets dn)
         {
             InitializeComponent();
-            this.pbj = pbj;
+            this.dn = dn;
         }
         /// <summary>
-        /// Event handler for holding peanut butter
+        /// Event handler for adding nuggets
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private void OnHoldPeanutButter(object sender, RoutedEventArgs args)
+        /// <param name="e"></param>
+        private void OnAddNugget(object sender, RoutedEventArgs e)
         {
-            this.pbj.HoldPeanutButter();
+            dn.AddNugget();
         }
         /// <summary>
-        /// Event handler for holding jelly
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private void OnHoldJelly(object sender, RoutedEventArgs args)
-        {
-            this.pbj.HoldJelly();
-        }
-        /// <summary>
-        /// Event handler for the diggity done button
+        /// Event Handler for diggity done
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

@@ -9,7 +9,7 @@ using DinoDiner.Menu;
 
 namespace MenuTest
 {
-    public class MockOrderItemTest
+    /*public class MockOrderItemTest
     {
 
         [Fact]
@@ -30,5 +30,5 @@ namespace MenuTest
             o.Items.Add(new MockOrderItems.MockOrderItem3());
             Assert.Equal<double>(0, o.SubTotalCost);
         }
-    }
+    }*/
 }

@@ -320,7 +320,7 @@ namespace PointOfSale
             {
                 drink.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
             }
-            NavigationService.Navigate(new MenuCategorySelection());
+            NavigationService.GoBack();
         }
         /// <summary>
         /// Displays lemon on specific drinks
@@ -346,7 +346,7 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void ReturnToMenuSelection(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new MenuCategorySelection());
+            NavigationService.GoBack();
         }
         /// <summary>
         /// Displays sweet on the tryannotea

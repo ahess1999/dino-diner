@@ -1,4 +1,4 @@
-﻿/* CustomizePrehistoricPBJ.xaml
+﻿/* CustomizeBrontowurst.xaml.cs
  * Author: Austin Hess
  */
 using System;
@@ -20,42 +20,51 @@ using DinoDiner.Menu;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CustomizePrehistoricPBJ.xaml
+    /// Interaction logic for CustomizeBrontowurst.xaml
     /// </summary>
-    public partial class CustomizePrehistoricPBJ : Page
+    public partial class CustomizeBrontowurst : Page
     {
         /// <summary>
-        /// Private variable to hold the pbj
+        /// Backing variable
         /// </summary>
-        private PrehistoricPBJ pbj;
+        private Brontowurst b;
         /// <summary>
-        /// Initializes and runs the page when called
+        /// Constructor
         /// </summary>
-        public CustomizePrehistoricPBJ(PrehistoricPBJ pbj)
+        public CustomizeBrontowurst(Brontowurst b)
         {
             InitializeComponent();
-            this.pbj = pbj;
+            this.b = b;
         }
         /// <summary>
-        /// Event handler for holding peanut butter
+        /// Event handler for holding bun
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void OnHoldPeanutButter(object sender, RoutedEventArgs args)
+        private void OnHoldBun(object sender, RoutedEventArgs e)
         {
-            this.pbj.HoldPeanutButter();
+            this.b.HoldBun();
         }
         /// <summary>
-        /// Event handler for holding jelly
+        /// Event handler for holding peppers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void OnHoldJelly(object sender, RoutedEventArgs args)
+        private void OnHoldPeppers(object sender, RoutedEventArgs e)
         {
-            this.pbj.HoldJelly();
+            this.b.HoldPeppers();
         }
         /// <summary>
-        /// Event handler for the diggity done button
+        /// Event handler for holding onions
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnHoldOnions(object sender, RoutedEventArgs e)
+        {
+            this.b.HoldOnion();
+        }
+        /// <summary>
+        /// Event handler for diggity done
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

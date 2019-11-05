@@ -1,0 +1,77 @@
+﻿<Page x:Class="PointOfSale.CustomizeTRexKingBurger"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PointOfSale"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="1000"
+      Title="CustomizeTRexKingBurger">
+
+    <Grid Background="Green">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Click="OnHoldBun" Grid.Column="1" Grid.Row="1">
+            <StackPanel>
+                <TextBlock>Hold Bun</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Click="OnHoldLettuce" Grid.Column="2" Grid.Row="1">
+            <StackPanel>
+                <TextBlock>Hold Lettuce</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Click="OnHoldTomato" Grid.Column="1" Grid.Row="2">
+            <StackPanel>
+                <TextBlock>Hold Tomato</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Click="OnHoldPickle" Grid.Column="2" Grid.Row="2">
+            <StackPanel>
+                <TextBlock>Hold Pickle</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Click="OnHoldKetchup" Grid.Column="1" Grid.Row="3">
+            <StackPanel>
+                <TextBlock>Hold Ketchup</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Click="OnHoldMustard" Grid.Column="2" Grid.Row="3">
+            <StackPanel>
+                <TextBlock>Hold Mustard</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Click="OnHoldMayo"  Grid.Column="1" Grid.Row="4">
+            <StackPanel>
+                <TextBlock>Hold Mayo</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Click="OnHoldOnions" Grid.Column="2" Grid.Row="4">
+            <StackPanel>
+                <TextBlock>Hold Onions</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Click="OnDiggityDone" Grid.Column="1" Grid.Row="5" Margin="0,0,0,1" Grid.ColumnSpan="2">
+            <StackPanel>
+                <TextBlock>Diggity Done</TextBlock>
+            </StackPanel>
+        </Button>
+        <TextBlock Grid.Column="1" Grid.Row="6" FontSize="68" FontFamily="Showcard Gothic" HorizontalAlignment="Center" Margin="49,10,36,-70">Dino</TextBlock>
+        <TextBlock Grid.Column="2" Grid.Row="6" FontSize="68" FontFamily="Showcard Gothic" HorizontalAlignment="Center" Margin="5,10,43,-68">Diner</TextBlock>
+        <TextBlock Grid.Row="0" FontSize="36" FontFamily="Showcard Gothic" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="129,0,73,0">Customize</TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="0" FontSize="36" FontFamily="Showcard Gothic" HorizontalAlignment="Center" Grid.ColumnSpan="3" Margin="161,0,0,0" Width="439">T-Rex King Burger</TextBlock>
+    </Grid>
+</Page>

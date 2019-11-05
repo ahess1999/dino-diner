@@ -1,4 +1,4 @@
-﻿/* CustomizePrehistoricPBJ.xaml
+﻿/* CustomizeVelociWrap.xaml
  * Author: Austin Hess
  */
 using System;
@@ -20,42 +20,52 @@ using DinoDiner.Menu;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CustomizePrehistoricPBJ.xaml
+    /// Interaction logic for CustomizeVelociWrap.xaml
     /// </summary>
-    public partial class CustomizePrehistoricPBJ : Page
+    public partial class CustomizeVelociWrap : Page
     {
         /// <summary>
-        /// Private variable to hold the pbj
+        /// Backing variable
         /// </summary>
-        private PrehistoricPBJ pbj;
+        private VelociWrap vw;
         /// <summary>
-        /// Initializes and runs the page when called
+        /// Constructor
         /// </summary>
-        public CustomizePrehistoricPBJ(PrehistoricPBJ pbj)
+        /// <param name="vw"></param>
+        public CustomizeVelociWrap(VelociWrap vw)
         {
             InitializeComponent();
-            this.pbj = pbj;
+            this.vw = vw;
         }
         /// <summary>
-        /// Event handler for holding peanut butter
+        /// Event Handler for hold dressing
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private void OnHoldPeanutButter(object sender, RoutedEventArgs args)
+        /// <param name="e"></param>
+        private void OnHoldDressing(object sender, RoutedEventArgs e)
         {
-            this.pbj.HoldPeanutButter();
+            vw.HoldDressing();
         }
         /// <summary>
-        /// Event handler for holding jelly
+        /// Event Handler for hold lettuce
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private void OnHoldJelly(object sender, RoutedEventArgs args)
+        /// <param name="e"></param>
+        private void OnHoldLettuce(object sender, RoutedEventArgs e)
         {
-            this.pbj.HoldJelly();
+            vw.HoldLettuce();
         }
         /// <summary>
-        /// Event handler for the diggity done button
+        /// Event Handler for hold cheese
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnHoldCheese(object sender, RoutedEventArgs e)
+        {
+            vw.HoldCheese();
+        }
+        /// <summary>
+        /// Event Handler for diggity done
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
