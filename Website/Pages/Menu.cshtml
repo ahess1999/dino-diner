@@ -6,16 +6,12 @@
 
 <h1>Menu</h1>
 <h2>Combos</h2>
-<div class="menu-item">Brontowurst Combo</div>
-<div class="ingredients">Brontowurst + Side + Drink</div>
-<div class="menu-item">Dino-Nuggets Combo</div>
-<div class="ingredients">Dino-Nuggets + Side + Drink</div>
-<div class="menu-item">Prehistoric PB&J Combo</div>
-<div class="ingredients">Prehistoric PB&J + Side + Drink</div>
-<div class="menu-item">Brontowurst Combo</div>
-<div class="ingredients">Brontowurst + Side + Drink</div>
-<div class="menu-item">Brontowurst Combo</div>
-<div class="ingredients">Brontowurst + Side + Drink</div>
+@for(int i = 0; i < Model.Menu.AvailableEntrees.Count; i++)
+{
+    <div class="menu-item">
+        <p>@(Model.Menu.AvailableEntrees[i].ToString()) Combo</p>
+    </div>
+}
 <h2>Entrees</h2>
 <h2>Sides</h2>
 <h2>Drinks</h2>
