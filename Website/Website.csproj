@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Images\DinoDiner-32.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
@@ -19,6 +15,10 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\DinoDiner-32.png" />
   </ItemGroup>
 
   <ItemGroup>

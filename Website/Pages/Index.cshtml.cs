@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Index.cshtml.cs
+ * Author: Austin Hess
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,6 +12,9 @@ namespace Website.Pages
 {
     public class IndexModel : PageModel
     {
+        /// <summary>
+        /// Constructor for Index razor page
+        /// </summary>
         public void OnGet()
         {
 

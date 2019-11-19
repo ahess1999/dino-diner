@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* About.cshtml.cs
+ * Author: Austin Hess
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,6 +12,9 @@ namespace Website.Pages
 {
     public class AboutModel : PageModel
     {
+        /// <summary>
+        /// Constructor for About razor page
+        /// </summary>
         public void OnGet()
         {
 
