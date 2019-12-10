@@ -26,27 +26,27 @@ namespace Website.Pages
         /// List of menu items
         /// </summary>
         [BindProperty]
-        public List<IMenuItem> MenuItems { get; set; }
+        public IEnumerable<IMenuItem> MenuItems { get; set; }
         /// <summary>
         /// List of combos
         /// </summary>
         [BindProperty]
-        public List<IMenuItem> Combos { get; set; }
+        public IEnumerable<IMenuItem> Combos { get; set; }
         /// <summary>
         /// List of entrees
         /// </summary>
         [BindProperty]
-        public List<IMenuItem> Entrees { get; set; }
+        public IEnumerable<IMenuItem> Entrees { get; set; }
         /// <summary>
         /// List of sides
         /// </summary>
         [BindProperty]
-        public List<IMenuItem> Sides { get; set; }
+        public IEnumerable<IMenuItem> Sides { get; set; }
         /// <summary>
         /// List of drinks
         /// </summary>
         [BindProperty]
-        public List<IMenuItem> Drinks { get; set; }
+        public IEnumerable<IMenuItem> Drinks { get; set; }
         /// <summary>
         /// Minimum price to filter by
         /// </summary>
@@ -82,10 +82,10 @@ namespace Website.Pages
             Sides = Menu.AvailableSides;
             Drinks = Menu.AvailableDrinks;
             MenuItems = Menu.AvailableMenuItems;
-            Menu.AllIngredients(Combos);
-            Menu.AllIngredients(Entrees);
-            Menu.AllIngredients(Sides);
-            Menu.AllIngredients(Drinks);
+            Menu.AllIngredients(Menu.AvailableCombos);
+            Menu.AllIngredients(Menu.AvailableEntrees);
+            Menu.AllIngredients(Menu.AvailableSides);
+            Menu.AllIngredients(Menu.AvailableDrinks);
             PossibleIngredientsHashSet = Menu.PossibleIngredients;
         }
         /// <summary>
@@ -98,45 +98,89 @@ namespace Website.Pages
             Sides = Menu.AvailableSides;
             MenuItems = Menu.AvailableMenuItems;
             Drinks = Menu.AvailableDrinks;
-            Menu.AllIngredients(Combos);
-            Menu.AllIngredients(Entrees);
-            Menu.AllIngredients(Sides);
-            Menu.AllIngredients(Drinks);
+            Menu.AllIngredients(Menu.AvailableCombos);
+            Menu.AllIngredients(Menu.AvailableEntrees);
+            Menu.AllIngredients(Menu.AvailableSides);
+            Menu.AllIngredients(Menu.AvailableDrinks);
             PossibleIngredientsHashSet = Menu.PossibleIngredients;
             if(Search != null)
             {
-                Combos = Menu.Search(Combos, Search);
-                Entrees = Menu.Search(Entrees, Search);
-                Sides = Menu.Search(Sides, Search);
-                Drinks = Menu.Search(Drinks, Search);
+                Combos = Combos.Where(combo => combo.ToString().Contains(Search));
+                Entrees = Entrees.Where(entree => entree.ToString().Contains(Search));
+                Sides = Sides.Where(side => side.ToString().Contains(Search));
+                Drinks = Drinks.Where(drink => drink.ToString().Contains(Search));
             }
             if(Filter.Count != 0)
             {
-                Combos = Menu.Filter(Combos, Filter);
-                Entrees = Menu.Filter(Entrees, Filter);
-                Sides = Menu.Filter(Sides, Filter);
-                Drinks = Menu.Filter(Drinks, Filter);
+                Combos = Combos.Where(combo => combo is CretaceousCombo && Filter.Contains("Combo")); ;
+                Entrees = Entrees.Where(entree => entree is Entree && Filter.Contains("Entree"));
+                Sides = Sides.Where(side => side is Side && Filter.Contains("Side"));
+                Drinks = Drinks.Where(drink => drink is Drink && Filter.Contains("Drink"));
             }
             if(Ingredients.Count != 0)
             {
-                Combos = Menu.FilterIngredients(Combos, Ingredients);
-                Entrees = Menu.FilterIngredients(Entrees, Ingredients);
-                Sides = Menu.FilterIngredients(Sides, Ingredients);
-                Drinks = Menu.FilterIngredients(Drinks, Ingredients);
+                Combos = Combos.Where(combo =>
+                {
+                    bool keep = false;
+                    for(int i = 0; i < Ingredients.Count; i++)
+                    {
+                        if (combo.Ingredients.Contains(Ingredients[i]))
+                        {
+                            keep = true;
+                        }
+                    }
+                    return keep;
+                });
+                Entrees = Entrees.Where(entree =>
+                {
+                    bool keep = false;
+                    for (int i = 0; i < Ingredients.Count; i++)
+                    {
+                        if (entree.Ingredients.Contains(Ingredients[i]))
+                        {
+                            keep = true;
+                        }
+                    }
+                    return keep;
+                });
+                Sides = Sides.Where(side =>
+                {
+                    bool keep = false;
+                    for (int i = 0; i < Ingredients.Count; i++)
+                    {
+                        if (side.Ingredients.Contains(Ingredients[i]))
+                        {
+                            keep = true;
+                        }
+                    }
+                    return keep;
+                });
+                Drinks = Drinks.Where(drink =>
+                {
+                    bool keep = false;
+                    for (int i = 0; i < Ingredients.Count; i++)
+                    {
+                        if (drink.Ingredients.Contains(Ingredients[i]))
+                        {
+                            keep = true;
+                        }
+                    }
+                    return keep;
+                });
             }
             if(MinimumPrice != null)
             {
-                Combos = Menu.FilterByMinPrice(Combos, MinimumPrice);
-                Entrees = Menu.FilterByMinPrice(Entrees, MinimumPrice);
-                Sides = Menu.FilterByMinPrice(Sides, MinimumPrice);
-                Drinks = Menu.FilterByMinPrice(Drinks, MinimumPrice);
+                Combos = Combos.Where(combo => combo.Price >= MinimumPrice);
+                Entrees = Entrees.Where(entree => entree.Price >= MinimumPrice);
+                Sides = Sides.Where(side => side.Price >= MinimumPrice);
+                Drinks = Drinks.Where(drink => drink.Price >= MinimumPrice);
             }
             if(MaximumPrice != null)
             {
-                Combos = Menu.FilterByMaxPrice(Combos, MaximumPrice);
-                Entrees = Menu.FilterByMaxPrice(Entrees, MaximumPrice);
-                Sides = Menu.FilterByMaxPrice(Sides, MaximumPrice);
-                Drinks = Menu.FilterByMaxPrice(Drinks, MaximumPrice);
+                Combos = Combos.Where(combo => combo.Price <= MaximumPrice);
+                Entrees = Entrees.Where(entree => entree.Price <= MaximumPrice);
+                Sides = Sides.Where(side => side.Price <= MaximumPrice);
+                Drinks = Drinks.Where(drink => drink.Price <= MaximumPrice);
             }
         }
     }

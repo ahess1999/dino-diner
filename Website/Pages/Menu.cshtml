@@ -3,57 +3,137 @@
 @{
     ViewData["Title"] = "Menu";
 }
+@using DinoDiner.Menu
     <div class="content">
         <h1>Menu</h1>
         <h2>Combos</h2>
-        @for (int i = 0; i < Model.Combos.Count; i++)
+        @foreach (IMenuItem combo in Model.Combos)
         {
+            CretaceousCombo item = combo as CretaceousCombo;
             <div class="menu-item">
-                <h4>@(Model.Combos[i].ToString())</h4>
-                <p>$ @Model.Combos[i].Price</p>
-                <p>Calories @Model.Combos[i].Calories</p>
-                @for (int j = 0; j < Model.Combos[i].Ingredients.Count; j++)
+                <p>@item.ToString()</p>
+
+                <table>
+                    <tr>
+                        <th>Size</th>
+                        <th>Price</th>
+                        <th>Calories</th>
+                    </tr>
+                    <tr>
+                        <td>Small</td>
+                        <td>@item.Price</td>
+                        <td>@item.Calories</td>
+                    </tr>
+                    @{item.Size = Size.Medium;}
+                    <tr>
+                        <td>Medium</td>
+                        <td>@item.Price</td>
+                        <td>@item.Calories</td>
+                    </tr>
+                    @{item.Size = Size.Large;}
+                    <tr>
+                        <td>Large</td>
+                        <td>@item.Price</td>
+                        <td>@item.Calories</td>
+                    </tr>
+                </table>
+
+                <p>Ingredients: </p>
+                @foreach (string ingredients in item.Ingredients)
                 {
-                    <p>@Model.Combos[i].Ingredients[j]</p>
+                    <ul>@ingredients</ul>
                 }
             </div>
         }
         <h2>Entrees</h2>
-        @for (int i = 0; i < Model.Entrees.Count; i++)
+        @foreach (IMenuItem entree in Model.Entrees)
         {
             <div class="menu-item">
-                <h4>@(Model.Entrees[i].ToString())</h4>
-                <p>$ @Model.Entrees[i].Price</p>
-                <p>Calories @Model.Entrees[i].Calories</p>
-                @for (int j = 0; j < Model.Entrees[i].Ingredients.Count; j++)
+                <h4>@entree.ToString()</h4>
+                <p>$ @entree.Price</p>
+                <p>Calories @entree.Calories</p>
+                <p>Ingredients: </p>
+                @foreach (string ingredients in entree.Ingredients)
                 {
-                    <p>@Model.Entrees[i].Ingredients[j]</p>
+                    <ul>@ingredients</ul>
                 }
             </div>
         }
         <h2>Sides</h2>
-        @for (int i = 0; i < Model.Sides.Count; i++)
+        @foreach (IMenuItem side in Model.Sides)
         {
+            Side item = side as Side;
             <div class="menu-item">
-                <h4>@(Model.Sides[i].ToString())</h4>
-                <p>$ @Model.Sides[i].Price</p>
-                <p>Calories @Model.Sides[i].Calories</p>
-                @for (int j = 0; j < Model.Sides[i].Ingredients.Count; j++)
+                <p>@item.ToString()</p>
+
+                <table>
+                    <tr>
+                        <th>Size</th>
+                        <th>Price</th>
+                        <th>Calories</th>
+                    </tr>
+                    <tr>
+                        <td>Small</td>
+                        <td>@item.Price</td>
+                        <td>@item.Calories</td>
+                    </tr>
+                    @{item.Size = Size.Medium;}
+                    <tr>
+                        <td>Medium</td>
+                        <td>@item.Price</td>
+                        <td>@item.Calories</td>
+                    </tr>
+                    @{item.Size = Size.Large;}
+                    <tr>
+                        <td>Large</td>
+                        <td>@item.Price</td>
+                        <td>@item.Calories</td>
+                    </tr>
+                </table>
+
+                <p>Ingredients: </p>
+                @foreach (string ingredients in item.Ingredients)
                 {
-                    <p>@Model.Sides[i].Ingredients[j]</p>
+                    <ul>@ingredients</ul>
                 }
             </div>
         }
         <h2>Drinks</h2>
-        @for (int i = 0; i < Model.Drinks.Count; i++)
+        @foreach (IMenuItem drink in Model.Drinks)
         {
+            Drink item = drink as Drink;
             <div class="menu-item">
-                <h4>@(Model.Drinks[i].ToString())</h4>
-                <p>$ @Model.Drinks[i].Price</p>
-                <p>Calories @Model.Drinks[i].Calories</p>
-                @for (int j = 0; j < Model.Drinks[i].Ingredients.Count; j++)
+                <p>@item.ToString()</p>
+
+                <table>
+                    <tr>
+                        <th>Size</th>
+                        <th>Price</th>
+                        <th>Calories</th>
+                    </tr>
+                    <tr>
+                        <td>Small</td>
+                        <td>@item.Price</td>
+                        <td>@item.Calories</td>
+                    </tr>
+                    @{item.Size = Size.Medium;}
+                    <tr>
+                        <td>Medium</td>
+                        <td>@item.Price</td>
+                        <td>@item.Calories</td>
+                    </tr>
+                    @{item.Size = Size.Large;}
+                    <tr>
+                        <td>Large</td>
+                        <td>@item.Price</td>
+                        <td>@item.Calories</td>
+                    </tr>
+                </table>
+
+                <p>Ingredients: </p>
+                @foreach (string ingredients in item.Ingredients)
                 {
-                    <p>@Model.Drinks[i].Ingredients[j]</p>
+                    <ul>@ingredients</ul>
                 }
             </div>
         }
@@ -68,19 +148,19 @@
             <div class="menu-category">
                 <label>
                     <input type="checkbox" value="Combo" name="menuCategory" checked="@Model.Filter.Contains("Combo")" />
-                    Combo 
+                    Combo
                 </label>
                 <label>
                     <input type="checkbox" value="Entree" name="menuCategory" checked="@Model.Filter.Contains("Entree")" />
-                    Entree 
+                    Entree
                 </label>
                 <label>
                     <input type="checkbox" value="Side" name="menuCategory" checked="@Model.Filter.Contains("Side")" />
-                    Side 
+                    Side
                 </label>
                 <label>
                     <input type="checkbox" value="Drink" name="menuCategory" checked="@Model.Filter.Contains("Drink")" />
-                    Drink 
+                    Drink
                 </label>
 
             </div>
